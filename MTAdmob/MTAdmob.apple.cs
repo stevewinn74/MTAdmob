@@ -18,6 +18,7 @@ namespace MarcTron.Plugin
         public string AdsId { get; set; }
         public bool UserPersonalizedAds { get; set; }
         public List<string> TestDevices { get; set; }
+        public Dictionary<string, string> CustomParameters { get; set; } = new Dictionary<string, string>();
         public bool UseRestrictedDataProcessing { get; set; } = false;
         public bool ComplyWithFamilyPolicies { get; set; } = false;
 
@@ -97,6 +98,15 @@ namespace MarcTron.Plugin
             {
                 request.Tag(CrossMTAdmob.Current.ComplyWithFamilyPolicies);
                 dict.Add(new NSString("max_ad_content_rating"), new NSString("G"));
+                addExtra = true;
+            }
+
+            if (CrossMTAdmob.Current.CustomParameters.Count > 0)
+            {
+                foreach (KeyValuePair<string, string> param in CrossMTAdmob.Current.CustomParameters)
+                {
+                    dict.Add(new NSString(param.Key), new NSString(param.Value));
+                }
                 addExtra = true;
             }
 

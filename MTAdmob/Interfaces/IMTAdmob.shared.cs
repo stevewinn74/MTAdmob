@@ -11,26 +11,18 @@ namespace MarcTron.Plugin.Interfaces
         /// Gets if the plugin is enabled.
         /// </summary>
         bool IsEnabled { get; set; }
-
         string AdsId { get; set; }
         bool UserPersonalizedAds { get; set; }
-
         bool UseRestrictedDataProcessing { get; set; }
-
         bool ComplyWithFamilyPolicies { get; set; }
-
         List<string> TestDevices { get; set; }
-
+        Dictionary<string, string> CustomParameters { get; set; }
         bool IsInterstitialLoaded();
         void LoadInterstitial(string adUnit);
         void ShowInterstitial();
-
         bool IsRewardedVideoLoaded();
-
         public void LoadRewardedVideo(string adUnit, MTRewardedAdOptions options = null);
-
         void ShowRewardedVideo();
-
 
         event EventHandler OnInterstitialLoaded;
         event EventHandler OnInterstitialOpened;      

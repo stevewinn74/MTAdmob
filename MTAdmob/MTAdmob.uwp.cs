@@ -15,6 +15,7 @@ namespace MarcTron.Plugin
         public string AdsId { get; set; }
         public bool UserPersonalizedAds { get; set; }
         public List<string> TestDevices { get; set; }
+        public Dictionary<string, string> CustomParameters { get; set; } = new Dictionary<string, string>();
         public bool UseRestrictedDataProcessing { get; set; }
         public bool ComplyWithFamilyPolicies { get; set; }
 
